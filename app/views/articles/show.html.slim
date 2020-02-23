@@ -1,0 +1,31 @@
+nav
+  .nav-wrapper.grey.darken-3.row
+    a.brand-logo.col.s2 href="/"  NonGym
+    ul#nav-mobile.right.hide-on-med-and-down
+      li
+        a href="/articles/new"  新規登録
+      li
+        a href="/"  記事一覧
+
+h3.yellow-text.text-darken-1　記事詳細
+
+table.card-panel.hoverable
+  tbody
+    tr
+      th= Article.human_attribute_name(:id)
+      td= @article.id
+    tr
+      th= Article.human_attribute_name(:title)
+      td= @article.title
+    tr
+      th= Article.human_attribute_name(:content)
+      td= simple_format(h(@article.content), {}, sanitize: false, wrapper_tag: "div")
+    tr
+      th= Article.human_attribute_name(:created_at)
+      td= @article.created_at
+    tr
+      th= Article.human_attribute_name(:updated_at)
+      td= @article.updated_at
+
+= link_to '編集', edit_article_path, class: "waves-effect waves-light btn yellow darken-1"
+= link_to '削除', @article, method: :delete, data: { confirm: "記事「#{@article.title}」を削除します。よろしいですか？" }, class: "waves-effect waves-light btn yellow darken-1"

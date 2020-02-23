@@ -1,0 +1,9 @@
+- flash.each do |type, msg|
+  - color = 'grey.darken-3' if type == 'notice'
+  - color = 'red lighten-1' if type == 'alert'
+
+  = javascript_tag "M.toast({html: '#{msg}',
+                             classes: '#{color}',
+                             displayLength: 4000,
+                             inDuration: 400,
+                             outDuration: 800})"
