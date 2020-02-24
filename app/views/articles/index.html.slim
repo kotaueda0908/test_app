@@ -5,7 +5,8 @@ h3.yellow-text.text-darken-1　記事一覧
     = f.search_field :title_cont
   = f.label :created_at_gteq, '登録日時'
     = f.search_field :created_at_gteq
-  = f.submit
+  button class="btn waves-effect waves-light yellow darken-1" type="submit" name="action" 検索
+    <i class="material-icons right">search</i>
 
 table.card-panel.hoverable
   thead
