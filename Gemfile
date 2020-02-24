@@ -11,6 +11,10 @@ gem 'html2slim'
 gem 'materialize-sass', '~> 1.0.0'
 gem 'material_icons'
 
+gem 'devise'
+
+gem 'config'
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 6.0.2', '>= 6.0.2.1'
 # Use mysql as the database for Active Record

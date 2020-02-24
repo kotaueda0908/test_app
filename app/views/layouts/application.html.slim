@@ -8,5 +8,25 @@ html
     = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
   body
-      = render partial: 'layouts/toast'
-      = yield
+    header
+      nav.grey.darken-3
+        div class="nav-wrapper"
+            div link_to="/" class="brand-logo"　NonGym
+            - if user_signed_in?
+              ul id="nav-mobile" class="right hide-on-med-and-down"
+                li
+                  = link_to 'プロフィール変更', edit_user_registration_path
+                li
+                  = link_to 'ログアウト', destroy_user_session_path, method: :delete
+                li
+                  a href="/articles/new"  新規登録
+                li
+                  a href="/"  記事一覧
+            - else
+              ul id="nav-mobile" class="right hide-on-med-and-down"
+                li
+                  = link_to 'サインアップ', new_user_registration_path
+                li
+                  = link_to 'ログイン', new_user_session_path
+    = render partial: 'layouts/toast'
+    = yield

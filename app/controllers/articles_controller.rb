@@ -1,6 +1,8 @@
 class ArticlesController < ApplicationController
+  before_action :sign_in_required
+
   def index
-    @articles = Article.all
+    @articles = current_user.articles.order(created_at: :desc)
   end
 
   def new
@@ -8,35 +10,35 @@ class ArticlesController < ApplicationController
   end
 
   def create
-    @article = Article.new(article_params)
+    @article = current_user.articles.new(article_params)
 
     if @article.save
-      redirect_to @article, notice: "記事「#{@article.title}」を登録しました。"
+      redirect_to root_url, notice: "記事「#{@article.title}」を登録しました。"
     else
       render :new
     end
   end
 
   def show
-    @article = Article.find(params[:id])
+    @article = current_user.articles.find(params[:id])
   end
 
   def edit
-    @article = Article.find(params[:id])
+    @article = current_user.articles.find(params[:id])
   end
 
   def update
-    @article = Article.find(params[:id])
+    @article = current_user.articles.find(params[:id])
 
     if @article.update(article_params)
-      redirect_to article_url(@article), notice: "記事「#{@article.title}」を更新しました"
+      redirect_to root_url(@article), notice: "記事「#{@article.title}」を更新しました"
     else
       render :edit
     end
   end
 
   def destroy
-    article = Article.find(params[:id])
+    article = current_user.articles.find(params[:id])
     article.destroy
     redirect_to articles_url, notice: "記事「#{article.title}」を削除しました。"
   end
