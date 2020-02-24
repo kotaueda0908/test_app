@@ -3,17 +3,18 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.6.3'
 
-gem 'image_processing'
-
 gem 'slim-rails'
 gem 'html2slim'
 
 gem 'materialize-sass', '~> 1.0.0'
 gem 'material_icons'
+gem 'image_processing'
 
 gem 'devise'
 
 gem 'config'
+
+gem 'ransack'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 6.0.2', '>= 6.0.2.1'

@@ -2,7 +2,8 @@ class ArticlesController < ApplicationController
   before_action :sign_in_required
 
   def index
-    @articles = current_user.articles.order(created_at: :desc)
+    @q = current_user.articles.ransack(params[:q])
+    @articles = @q.result(distinct: true)
   end
 
   def new
