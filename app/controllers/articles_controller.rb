@@ -22,6 +22,7 @@ class ArticlesController < ApplicationController
 
   def show
     @article = current_user.articles.find(params[:id])
+    @like = Like.new
   end
 
   def edit

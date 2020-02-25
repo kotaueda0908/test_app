@@ -2,6 +2,8 @@ class Article < ApplicationRecord
     has_rich_text :content
     validates :title, presence: true, length: { maximum: 30 }
     belongs_to :user
+    has_many :likes
+    has_many :liked_users, through: :likes, source: :user
     def self.ransackable_attributes(auth_object = nil)
         %w[title created_at]
     end

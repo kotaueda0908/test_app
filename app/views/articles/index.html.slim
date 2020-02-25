@@ -12,9 +12,9 @@ table.card-panel.hoverable
   thead
     tr
       th= sort_link(@q, :title)
-      th= Article.human_attribute_name(:title)
       th= Article.human_attribute_name(:created_at)
       th
+      th= Article.human_attribute_name(:liked_count)
   tbody
     - @articles.each do |article|
       tr
@@ -23,3 +23,5 @@ table.card-panel.hoverable
         td
           = link_to '編集', edit_article_path(article), class: "waves-effect waves-light btn yellow darken-1"
           = link_to '削除', article, method: :delete, data: { confirm: "記事「#{article.title}」を削除します。よろしいですか？" }, class: "waves-effect waves-light btn yellow darken-1"
+        td class="liked" = article.liked_users.count
+
