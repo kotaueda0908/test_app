@@ -15,6 +15,13 @@ ja:
         created_at: 登録日時
         updated_at: 更新日時
         liked_count: いいね数
+  views:
+    pagination:
+      first: "&laquo; 最初"
+      last: "最後 &raquo;"
+      previous: "&lsaquo; 前"
+      next: "次 &rsaquo;"
+      truncate: "..."
     errors:
       messages:
         record_invalid: "バリデーションに失敗しました: %{errors}"

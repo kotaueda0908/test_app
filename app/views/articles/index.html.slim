@@ -25,3 +25,4 @@ table.card-panel.hoverable
           = link_to '削除', article, method: :delete, data: { confirm: "記事「#{article.title}」を削除します。よろしいですか？" }, class: "waves-effect waves-light btn yellow darken-1"
         td class="liked" = article.liked_users.count
 
+= paginate @articles
