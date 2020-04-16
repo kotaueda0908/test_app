@@ -11,4 +11,7 @@ class User < ApplicationRecord
   def already_liked?(article)
     self.likes.exists?(article_id: article.id)
   end
+
+  validates :name, presence: true
+  validates :email, uniqueness: false
 end
