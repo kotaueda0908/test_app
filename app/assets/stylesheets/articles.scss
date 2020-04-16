@@ -16,3 +16,31 @@ th {
   color: #f06292;
   padding-left: 30px;
 }
+
+.pagination {
+  background-color: #616161;
+}
+
+span {
+  padding: 5px;
+}
+
+span a:hover {
+  color: #bdbdbd;
+}
+
+.main-container h1 {
+  margin-top: 0px;
+  padding-top: 400px;
+  text-align: center;
+  color: white;
+  opacity: 0.9;
+  font-family: "cursive";
+}
+
+.main-container {
+  background-image: image-url("kinniku.jpg");
+  height: 900px;
+  background-size: cover;
+  vertical-align: bottom;
+}

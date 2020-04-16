@@ -1,5 +1,9 @@
 class ArticlesController < ApplicationController
-  before_action :sign_in_required
+  before_action :authenticate_user!, except: [:top]
+  before_action :sign_in_required, except: [:top]
+
+  def top
+  end
 
   def index
     @q = current_user.articles.ransack(params[:q])
@@ -15,7 +19,7 @@ class ArticlesController < ApplicationController
     @article = current_user.articles.new(article_params)
 
     if @article.save
-      redirect_to root_url, notice: "記事「#{@article.title}」を登録しました。"
+      redirect_to articles_url, notice: "記事「#{@article.title}」を登録しました。"
     else
       render :new
     end
@@ -34,7 +38,7 @@ class ArticlesController < ApplicationController
     @article = current_user.articles.find(params[:id])
 
     if @article.update(article_params)
-      redirect_to root_url(@article), notice: "記事「#{@article.title}」を更新しました"
+      redirect_to articles_url, notice: "記事「#{@article.title}」を更新しました"
     else
       render :edit
     end
