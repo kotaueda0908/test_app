@@ -58,7 +58,7 @@ span a:hover {
   padding: 0;
   // 無駄な余白を消す
   vertical-align: bottom;
-  background-image: url("kinniku.jpg");
+  background-image: image-url("/assets/kinniku.jpg");
   background-size: cover;
   position: absolute;
   width: 100%;
@@ -71,7 +71,7 @@ span a:hover {
   margin: 0;
   padding: 0;
   vertical-align: bottom;
-  background-image: url("kinniku_2.jpg");
+  background-image: image-url("/assets/kinniku_2.jpg");
   background-size: cover;
   position: absolute;
   width: 100%;
@@ -84,7 +84,7 @@ span a:hover {
   margin: 0;
   padding: 0;
   vertical-align: bottom;
-  background-image: url("kinniku_3.jpg");
+  background-image: image-url("/assets/kinniku_3.jpg");
   background-size: cover;
   position: absolute;
   width: 100%;
