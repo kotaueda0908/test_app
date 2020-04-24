@@ -4,6 +4,10 @@ class Article < ApplicationRecord
     belongs_to :user
     has_many :likes
     has_many :liked_users, through: :likes, source: :user
+
+    # acts_as_taggable_on :tagのエイリアス
+    acts_as_taggable
+
     def self.ransackable_attributes(auth_object = nil)
         %w[title created_at]
     end

@@ -12,6 +12,9 @@ table.card-panel.hoverable
       th= Article.human_attribute_name(:content)
       td= simple_format(h(@article.content), {}, sanitize: false, wrapper_tag: "div")
     tr
+      th= Article.human_attribute_name(:tag_list)
+      td= render 'articles/tag_list', tag_list: @article.tag_list
+    tr
       th= Article.human_attribute_name(:created_at)
       td= @article.created_at
     tr

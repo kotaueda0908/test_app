@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   }
   resources :users, only: [:index, :show]
   root to: 'articles#top'
+  get 'tags/:tag_name', to: 'articles#index', as: :tag
   resources :articles do
     resources :likes, only: [:create, :destroy]
   end

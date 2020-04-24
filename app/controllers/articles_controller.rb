@@ -9,6 +9,11 @@ class ArticlesController < ApplicationController
     @q = current_user.articles.ransack(params[:q])
     @articles = @q.result(distinct: true)
     @articles = Article.all.page(params[:page]).per(5)
+    # コントローラーでパラメーターを受け取る
+    # tagged_with("タグ名")で絞り込み処理をする
+    if params[:tag_name]
+      @articles = Article.tagged_with("#{params[:tag_name]}").all.page(params[:page]).per(5)
+    end
   end
 
   def new
@@ -53,6 +58,6 @@ class ArticlesController < ApplicationController
   private
 
   def article_params
-    params.require(:article).permit(:title, :content)
+    params.require(:article).permit(:title, :content, :tag_list)
   end
 end
