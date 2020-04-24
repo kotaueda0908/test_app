@@ -12,14 +12,20 @@ table.card-panel.hoverable
   thead
     tr
       th= sort_link(@q, :title)
-      th= Article.human_attribute_name(:created_at)
+      th class="created_at" = Article.human_attribute_name(:created_at)
+      th class="tag" = Article.human_attribute_name(:tag_list)
       th
       th= Article.human_attribute_name(:liked_count)
+
   tbody
     - @articles.each do |article|
       tr
         td class="show_link" = link_to article.title, article
         td= article.created_at
+        / タグ表示欄の追加
+        / renderを利用し、パーシャルファイルで処理
+        / tag_listをメソッドとして使用し、tag_listにarticle.tag_listで取り出したパラメーターを渡す
+        td= render 'articles/tag_list', tag_list: article.tag_list
         td
           = link_to '編集', edit_article_path(article), class: "waves-effect waves-light btn yellow darken-1"
           = link_to '削除', article, method: :delete, data: { confirm: "記事「#{article.title}」を削除します。よろしいですか？" }, class: "waves-effect waves-light btn yellow darken-1"

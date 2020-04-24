@@ -1,0 +1,5 @@
+/ 受け取ったパラメーターを一つ一つ分けて表示する
+/ タグにリンクを付け、リンク先にパラメーターを渡す
+- tag_list.each do |tag|
+  span
+    = link_to tag, articles_path(tag_name: tag), class: "waves-effect waves-light btn blue-grey lighten-4"

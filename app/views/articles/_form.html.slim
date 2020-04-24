@@ -1,4 +1,4 @@
-- if article.errors.present? 
+- if article.errors.present?
   ul#error_explanation
     - article.errors.full_messages.each do |message|
       li = javascript_tag "M.toast({html: '#{message}',
@@ -13,5 +13,10 @@ div.row.col.s12
   div
     = f.label :content
     = f.rich_text_area :content, id: 'article_content'
+  / 記事投稿フォームにタグを入力できるようにする
+  / 入力されたタグが配列としてtag_listに代入される
+  div
+    = f.label :tag_list
+    = f.text_field :tag_list, value: @article.tag_list.join(','), class: "form-control"
   button class="btn waves-effect waves-light yellow darken-1" type="submit" name="action" submit
     <i class="material-icons right">send</i>

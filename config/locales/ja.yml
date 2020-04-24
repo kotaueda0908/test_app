@@ -15,6 +15,7 @@ ja:
         created_at: 登録日時
         updated_at: 更新日時
         liked_count: いいね数
+        tag_list: タグ
   views:
     pagination:
       first: "&laquo; 最初"
